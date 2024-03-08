@@ -1,85 +1,41 @@
-# Vuejs & TailwindCSS Portfolio - With Dark Mode
+# README
 
-A simple portfolio starter theme built with Vue.js v3, Composition API and Tailwind CSS v3.
+## Entités ajoutées
 
-![Vuejs-TailwindCSS-Portfolio](https://user-images.githubusercontent.com/16396664/140909796-815239e4-a986-46ad-bbd0-4b166127bbb8.JPG)
+### Catégorie
 
-## Demo URL
+Une entité `Catégorie` a été ajoutée avec les propriétés suivantes :
+- `id` : de type `Long`.
+- `nom` : de type `String` avec une longueur de 3 à 30 caractères.
 
-[https://vuejs-tailwindcss-portfolio.netlify.com](https://vuejs-tailwindcss-portfolio.netlify.com)
+### Enrichissement de l'entité Produit
 
-## Other versions of this project
+L'entité `Produit` a été enrichie avec une référence à la `Catégorie` :
+- Cette référence peut être nulle.
+- Elle utilise obligatoirement la colonne nommée "id_categorie" dans la table.
 
--   Nuxt.js Version: [https://github.com/realstoman/nuxtjs-tailwindcss-portfolio](https://github.com/realstoman/nuxtjs-tailwindcss-portfolio)
--   React Version: [https://github.com/realstoman/react-tailwindcss-portfolio](https://github.com/realstoman/react-tailwindcss-portfolio)
--   Next.js Version: [https://github.com/realstoman/nextjs-tailwindcss-portfolio](https://github.com/realstoman/nextjs-tailwindcss-portfolio)
+## Création de données initiales
 
-## Features
+Pour initialiser la base de données avec des données de départ, j'ai réalisé ce qui suit :
 
--   Simple and responsive design
--   [Vue.js v3](https://vuejs.org) with [Vue Router](https://router.vuejs.org)
--   [Tailwind CSS v3](https://tailwindcss.com)
--   Theme Switcher with Dark Mode
--   Composition API
--   Vue transitions
--   Reusable Components
--   Auto Counter Component
--   Projects filter by category
--   Projects filter by search
--   Projects carousel
--   Vue.js smooth scroll
--   Dynamic forms
--   Scroll to top button
--   Download file button
+1. **Création de 3 premières catégories**
+   - J'ai implémenté un code Java de type CommandLineRunner pour créer ces catégories.
 
-### To Contribute to this project, read the [Contribution Guidlines](https://github.com/realstoman/vuejs-tailwindcss-portfolio/blob/main/CONTRIBUTING.md)
+2. **Création d'un produit associé à chaque catégorie**
+   - Un produit a été créé pour chaque catégorie initiale. Les autres produits sont donc sans catégorie.
 
-## Setup
+## Affichage des catégories dans la liste des produits
 
-1. Make sure you have Node JS installed. If you don't have it:
+Dans la liste des produits affichés, j'ai pris en compte la possibilité que la catégorie puisse être nulle. Ainsi, les produits sans catégorie sont correctement traités.
 
--   [Download it from nodejs.org](https://nodejs.org)
--   [Install it using NVM ](https://github.com/nvm-sh/nvm)
--   If you're on Mac, Homebrew is a good option too:
+## Modification de la catégorie d'un produit existant
 
-```
-brew install node
-```
+J'ai implémenté une fonctionnalité permettant de modifier la catégorie d'un produit existant. L'utilisateur peut choisir une nouvelle catégorie parmi celles disponibles ou laisser le produit sans catégorie.
 
-2. Clone the repo:
+## Choix de la catégorie lors de la création d'un nouveau produit
 
-```
-git clone https://github.com/realstoman/vuejs-tailwindcss-portfolio.git
-```
+Lors de la création d'un nouveau produit, l'utilisateur a la possibilité de choisir la catégorie associée au produit parmi celles disponibles.
 
-3. Open the project folder:
+## Liste, création et modification des catégories
 
-```
-cd vuejs-tailwindcss-portfolio
-```
-
-4. Install packages and dependencies:
-
-```
-npm install
-```
-
-5. Start a local dev server at `http://localhost:8080`:
-
-```
-npm run serve
-```
-
-## Notes
-
--   Always run `npm install` after pulling new changes
--   I'll be constantly updating this repo as I'll be adding more sections to it, so please always check the projects section of this repo to see what tasks are under todo and in progress
--   Coming Soon [I'll be doing a screencast](https://www.youtube.com/realstoman). Soon I'll be uploading a video to my YouTube channel where I'll be going through the process of creating this portoflio
--   Illustrations from [unDraw](https://undraw.co) and [Freepik](https://freepik.com)
--   Images from [Unsplash](https://unsplash.com)
--   Feel free to use it as your own portfolio
--   Contributions are welcome
-
-### License
-
-[MIT](https://github.com/realstoman/vuejs-tailwindcss-portfolio/blob/main/LICENSE)
+J'ai mis en place des fonctionnalités permettant de lister, créer et modifier les catégories dans l'application. Cela inclut l'affichage de la liste des catégories disponibles, la possibilité d'en créer de nouvelles et de modifier les informations des catégories existantes.
